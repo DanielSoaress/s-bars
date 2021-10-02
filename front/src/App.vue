@@ -1,28 +1,34 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app id="app">
+    <v-main>
+      <navigation-drawers :user="user" :menu-link="sidebar"></navigation-drawers>
+      <div><h5>HELLO WORLD</h5></div>
+      <router-view></router-view>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data: function() {
+    return {
+      user: {
+        img: 'https://avatars.githubusercontent.com/u/27651005?s=400&u=88fb0f9c96835527e0eb836d18b25bed82c79372&v=4',
+        name: 'Daniel Soares Francelino',
+        email: 'danielsoaresf@hotmail.com'
+      },
+      sidebar: [
+        { name: 'Produtos', icon: 'mdi-storefront-outline', fullPath: '/produto'}
+      ]
+    }
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: 'Roboto', sans-serif;
 }
 </style>
