@@ -1,31 +1,56 @@
 <template>
     <div>
-        <Form title="Listar Produtos">
-            <v-col cols='6'>
-                <v-text-field
-                    :counter="10"
-                    label="Código do Produto"
-                    required
-                ></v-text-field>
-            </v-col>
-            <v-col cols="6">
-                <v-text-field
-                    :counter="10"
-                    label="Nome do Produto"
-                    required
-                ></v-text-field>   
-            </v-col>
+        <Form
+          :title="$route.name"
+          type="list">  
+            <Input
+                :cols="6"
+                label="Código do Produto" 
+                v-model="filters.cod_produto"
+            />
+            <Input
+                :cols="6"
+                label="Nome do Produto" 
+                v-model="filters.nom_produto"
+            />
         </Form>
-        <v-row class="mt-4">
-            <v-col cols="12">
-                <DataTable />
-            </v-col>
-        </v-row>
+        <DataTable
+            :datasource="datasource"
+            :columns="headers"
+            @editar="editar($event)"
+            @deletar="deletar($event)"
+        />
+
     </div>
 </template>
 
 <script>
+import ProdutoMixin from './ProdutoMixin';
+
 export default {
-    
+    mixins: [ProdutoMixin],
+    data: () => ({
+      filters: {
+          cod_produto: null,
+          nom_produto: null
+      },
+      headers: [
+        { text: 'Código', value: 'cod_produto' },
+        { text: 'Nome', value: 'nom_produto' },
+        { text: 'Valor', value: 'val_produto' },
+        { text: '', value: 'actions', sortable: false },
+      ],
+    }),
+    async created() {
+        this.listar();
+    },
+    methods: {
+        editar(item) {
+            this.$router.push(`${this.$route.fullPath}/editar/${item.cod_produto}`)
+        },
+        deletar(item) {
+            console.log(item)
+        }
+    }
 }
 </script>

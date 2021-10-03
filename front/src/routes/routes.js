@@ -1,7 +1,6 @@
 import { router } from '../config';
 import Inicio from '../pages/Inicio/Inicio';
 
-
 const routes = [
    /********************************************************
      * INICIO

@@ -4,13 +4,12 @@ import { vuetify } from '@/config';
 import VueRouter from 'vue-router';
 import routes from './routes/routes';
 
-
-
+// importação do store (VUEX)
+import store from './store';
 Vue.config.productionTip = false
 
 // importações global
 import { components } from './global';
-
 // iniciando o global
 Vue.use(components);
 
@@ -23,7 +22,11 @@ const router = new VueRouter({
 });
 
 new Vue({
+  beforeCreate: function() {
+    Vue.prototype.$routes = router;
+  },
   render: h => h(App),
   vuetify,
-  router
+  router,
+  store
 }).$mount('#app')

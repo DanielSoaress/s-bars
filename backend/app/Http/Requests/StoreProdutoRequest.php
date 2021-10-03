@@ -24,10 +24,10 @@ class StoreProdutoRequest extends FormRequest
     public function rules()
     {
         return [
-            'cod_produto' => ['required', 'string'],
-            'nom_produto' => ['required', 'string'],
-            'des_produto' => ['required', 'string'],
-            'val_produto' => ['required', 'double'],
+            'cod_produto' => ['required', 'string', 'unique:produtos'],
+            'nom_produto' => ['required', 'string', 'unique:produtos'],
+            'des_produto' => ['required'],
+            'val_produto' => ['required'],
         ];
     }
 }

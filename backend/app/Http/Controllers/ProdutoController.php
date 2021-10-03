@@ -3,11 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\JsonResponse;
 use App\Services\ProdutoService;
-
-
-
 use Illuminate\Http\Request;
-
 class ProdutoController extends Controller
 {
     protected $service;

@@ -4,48 +4,54 @@
           justify="space-between"
         >
             <h2 class="ml-3 mt-2 mb-2">{{ title }}</h2>
-            <v-btn
-                color="indigo"
-                dark
-                class="mr-2 mt-2 ml-auto"
-            >
-                <v-icon
-                    left
-                    dark
-                >
-                    mdi-plus  
-                </v-icon>
-                Adicionar
-            </v-btn>            
+            <template v-if="type == 'list'">
+                <Button 
+                    :route="adicionar"
+                    color="indigo"
+                    icon="mdi-plus"
+                    text="Adicionar"
+                    class-custom="mr-2 mt-2 ml-auto"
+                /> 
+            </template>
+            <slot name="top"></slot>        
         </v-row>
         <v-row class="px-3">
             <slot></slot>
         </v-row>
         <v-row>
-            <v-btn
-            color="secondary"
-            class="ma-2"
-            >
-                <v-icon
-                    left
-                    dark
-                >
-                    mdi-magnify  
-                </v-icon>
-                Pesquisar
-            </v-btn>   
-            <v-btn
-            color="blue-grey"
-            class="ma-2 white--text"
-            >
-                <v-icon
-                    left
-                    dark
-                >
-                    mdi-eraser 
-                </v-icon>
-                Limpar
-            </v-btn>          
+            <template v-if="type == 'list'">
+                <Button 
+                    @click="pesquisar"                 
+                    color="secondary"
+                    icon="mdi-magnify"
+                    text="Pesquisar"
+                    class-custom="ma-2"
+                /> 
+                <Button 
+                    @click="limpar"                 
+                    color="blue-grey"
+                    icon="mdi-eraser"
+                    text="Limpar"
+                    class-custom="ma-2 white--text"
+                />  
+            </template>      
+            <template v-if="type == 'form'">
+                <Button 
+                    @click="voltar"
+                    color="secondary"
+                    icon="mdi-keyboard-backspace"
+                    text="Voltar"
+                    :outlined='true'
+                    class-custom="ma-2"
+                /> 
+                <Button 
+                    @click="salvar"                    
+                    color="info"
+                    icon="mdi-content-save"
+                    text="Salvar"
+                    class-custom="ma-2"
+                />  
+            </template>   
         </v-row>
     </v-card>
 </template>
@@ -55,8 +61,32 @@ export default {
     name: 'Form',
     props: {
       title: String,
+      route: String,
+      //Se é o Form de Listagem
+      type: {
+        type: String,
+        default: 'list'          
+      },
+    },
+    computed: {
+        adicionar: function () {
+            return this.$route.fullPath + '/adicionar' 
+        },
+    },
+    methods: {
+        voltar: function () {
+            this.$router.go(-1)
+        },
+        salvar: function () {
+           this.$emit('cadastrar');
+        },
+        limpar: function () {
+            console.log('limpar')
+        },
+        pesquisar: function () {
+            console.log('pesquisar')
+        }                     
     }
-
 }
 </script>
 

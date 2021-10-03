@@ -50,9 +50,6 @@
 </script>
 
 <style scoped>
-.router-link {
-    text-decoration: none;
-}
 
 .title {
     font-weight: 600!important;
@@ -68,5 +65,9 @@
     display: inline-flex;
     position: absolute;
     z-index: 5;
+}
+
+.router-link {
+    text-decoration: none;
 }
 </style>

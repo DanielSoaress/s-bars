@@ -1,7 +1,9 @@
 import {
   NavigationDrawers,
   Form,
-  DataTable
+  DataTable,
+  Input,
+  Button
 } from '../components';
 
 /**
@@ -15,7 +17,8 @@ const GlobalComponents = {
     Vue.component(NavigationDrawers.name, NavigationDrawers);
     Vue.component(Form.name, Form);
     Vue.component(DataTable.name, DataTable);
-
+    Vue.component(Input.name, Input);
+    Vue.component(Button.name, Button);
 
   }
 };

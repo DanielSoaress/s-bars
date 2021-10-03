@@ -19,29 +19,6 @@ abstract class BaseRepository
         $this->model = app($this->model);
     }
 
-    protected function user($request, $version = 1): array
-    {
-        $datetime = date('Y-m-d') . 'T' . date('H:i:s');
-
-        if ($request->method() == 'POST' || $version == 1) {
-            return array_merge($request->all(), [
-                'versao' => $version,
-                'id_pessoa_inclusao' => Auth::user()['id'],
-                'usuario_inclusao' => Auth::user()['name'],
-                'data_inclusao' => $datetime,
-                'id_pessoa_ult_alteracao' => Auth::user()['id'],
-                'usuario_ult_alteracao' => Auth::user()['name'],
-                'data_ult_alteracao' => $datetime
-            ]);
-        }
-
-        return array_merge($request->all(), [
-            'versao' => $version,
-            'id_pessoa_ult_alteracao' => Auth::user()['id'],
-            'usuario_ult_alteracao' => Auth::user()['name'],
-            'data_ult_alteracao' => $datetime
-        ]);
-    }
 
     public function listar($porPagina = 5, $direcao = null, $ordenarPor = null, $criterioBusca = null, $filtros = null): array
     {
@@ -89,9 +66,11 @@ abstract class BaseRepository
     public function cadastrar(Request $request)
     {
         try {
-            $data = $this->user($request);
-            $model = $this->model->create($data);
-            return $model;
+            foreach ($this->model->getFillable() as $value) {
+                $this->model[$value] = $request[$value];
+            }
+            $this->model->create($this->model->getAttributes());
+            return true;
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -104,8 +83,6 @@ abstract class BaseRepository
             $form = $request->all();
 
             if ($model->fill($form)->getAttributes() != $model->getRawOriginal()) {
-                $version = $model['versao'] + 1;
-                $form = $this->user($request, $version);
                 $model->fill($form)->save();
             }
 
@@ -127,45 +104,15 @@ abstract class BaseRepository
         }
     }
 
-    public function buscarPor($column, $value, $log = false)
+    public function buscarPor($column, $value)
     {
         try {
             $query = $this->model->where($column, '=', $value)->first();
-
-            if ($log) {
-                $query = $this->log($query);
-            }
 
             return  $query;
         } catch (Exception $e) {
             return $e->getMessage();
         }
-    }
-
-    public function isDuplicate($columns, $values)
-    {
-        try {
-            $query = $this->model->orderBy($columns[0], "asc");
-            foreach ($columns as $key => $c) {
-                $query->where($c, $values[$key]);
-            }
-
-            return $query->count() > 0 ? true : false;
-        } catch (Exception $e) {
-            return $e->getMessage();
-        }
-    }
-
-    public function log($query): object
-    {
-        $change = $query['data_inclusao'] != $query['data_ult_alteracao'];
-
-        return $query->setAttribute('log', [
-            'usuario_inclusao' => $query['usuario_inclusao'],
-            'data_inclusao' => Format::datetime_to_date_br($query['data_inclusao']),
-            'usuario_ultima_atualizacao' => $change ? $query['usuario_ult_alteracao'] : '',
-            'data_atualizacao' => $change ? Format::datetime_to_date_br($query['data_ult_alteracao']) : ''
-        ]);
     }
 
     public function options($porPagina = 5)

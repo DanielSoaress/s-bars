@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Services;
-
 use App\Repositories\ProdutoRepository;
 use App\Http\Requests\StoreProdutoRequest;
 use App\Http\Requests\UpdateProdutoRequest;

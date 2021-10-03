@@ -15,9 +15,8 @@ interface BaseRepositoryInterface
     ): array;
     public function cadastrar(Request $request);
     public function editar(string $id, Request $request);
-    public function buscarPor($column, $value, $log = false);
+    public function buscarPor($column, $value);
     public function excluir(string $id);
     public function options(int $porPagina = 5);
-    public function log($query): object;
     public function listFields(): array;
 }
