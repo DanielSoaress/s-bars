@@ -2,6 +2,7 @@
       <v-navigation-drawer
         permanent
         expand-on-hover
+        class="aside mr-2"
       >
         <v-list>
           <v-list-item >
@@ -61,5 +62,11 @@
 
 .v-list-item {
     padding: 0 8px;
+}
+
+.aside {
+    display: inline-flex;
+    position: absolute;
+    z-index: 5;
 }
 </style>

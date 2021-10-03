@@ -1,5 +1,7 @@
 import {
   NavigationDrawers,
+  Form,
+  DataTable
 } from '../components';
 
 /**
@@ -11,6 +13,10 @@ import {
 const GlobalComponents = {
   install(Vue) {
     Vue.component(NavigationDrawers.name, NavigationDrawers);
+    Vue.component(Form.name, Form);
+    Vue.component(DataTable.name, DataTable);
+
+
   }
 };
 

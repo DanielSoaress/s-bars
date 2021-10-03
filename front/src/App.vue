@@ -1,9 +1,14 @@
 <template>
   <v-app id="app">
     <v-main>
-      <navigation-drawers :user="user" :menu-link="sidebar"></navigation-drawers>
-      <div><h5>HELLO WORLD</h5></div>
-      <router-view></router-view>
+        <v-row>
+          <v-col cols='1'> 
+            <navigation-drawers :user="user" :menu-link="sidebar"></navigation-drawers>
+          </v-col>
+          <v-col cols='10'> 
+            <router-view></router-view>                    
+          </v-col>
+        </v-row>
     </v-main>
   </v-app>
 </template>
