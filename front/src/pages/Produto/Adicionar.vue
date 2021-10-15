@@ -52,7 +52,6 @@
 import ProdutoMixin from './ProdutoMixin';
 import validator from '../../mixins/validator';
 
-
 export default {
     mixins: [ProdutoMixin, validator],
     data: () => ({

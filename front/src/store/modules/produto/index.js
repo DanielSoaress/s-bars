@@ -1,5 +1,5 @@
 import { api, router } from '../../../config';
-import  { navigate, brlFormat } from '../../../util';
+import  { navigate, brlFormat, notify } from '../../../util';
 
 export default {
   namespaced: true,
@@ -46,8 +46,8 @@ export default {
       try {
         await commit('SET_LOADING');
         const response = await api.post('base/produto', data);
-        console.log(response.errors)
         commit('SET_SUCCESS');
+        notify('success', response.data.message);
         navigate(router.produto.fullPath);
         return response;
       } catch (error) {
@@ -61,6 +61,7 @@ export default {
         commit('SET_LOADING');
         const response = await api.put(`base/produto/${data._id}`, data);
         commit('SET_SUCCESS');
+        navigate(router.produto.fullPath);
         return response;
       } catch (error) {
         commit('SET_ERROR');

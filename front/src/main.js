@@ -3,6 +3,8 @@ import App from './App.vue'
 import { vuetify } from '@/config';
 import VueRouter from 'vue-router';
 import routes from './routes/routes';
+import Notifications from 'vue-notification';
+
 
 // importação do store (VUEX)
 import store from './store';
@@ -12,6 +14,8 @@ Vue.config.productionTip = false
 import { components } from './global';
 // iniciando o global
 Vue.use(components);
+
+Vue.use(Notifications);
 
 // iniciando plugins
 Vue.use(VueRouter);

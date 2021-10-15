@@ -6,6 +6,7 @@
             <navigation-drawers :user="user" :menu-link="sidebar"></navigation-drawers>
           </v-col>
           <v-col cols='10'> 
+            <notifications position="top right"/>
             <router-view></router-view>                    
           </v-col>
         </v-row>
