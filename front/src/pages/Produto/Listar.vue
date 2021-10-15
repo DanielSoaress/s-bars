@@ -2,7 +2,9 @@
     <div>
         <Form
           :title="$route.name"
-          type="list">  
+          type="list"
+          @pesquisar="pesquisar()"
+          @limpar="limpar()">  
             <Input
                 :cols="6"
                 label="Código do Produto" 
@@ -17,8 +19,12 @@
         <DataTable
             :datasource="datasource"
             :columns="headers"
+            :loading="loading"
             @editar="editar($event)"
             @deletar="deletar($event)"
+            @onPagination="listar"
+            :pagination="pagination"
+            :filters="filters"
         />
 
     </div>
@@ -42,9 +48,24 @@ export default {
       ],
     }),
     async created() {
+        console.log(this.pagination)
         this.listar();
     },
     methods: {
+        async pesquisar() {
+            await this.listar({
+                ...this.pagination,
+                filters: this.filters,
+                current_page: 1,
+            });
+        },
+        limpar() {
+            this.filters = {
+                cod_produto: null,
+                nom_produto: null
+            };
+            this.pesquisar();
+        },
         editar(item) {
             this.$router.push(`${this.$route.fullPath}/editar/${item.cod_produto}`)
         },

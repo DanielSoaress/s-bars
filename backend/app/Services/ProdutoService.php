@@ -26,7 +26,7 @@ class ProdutoService
 
     public function cadastrar(Request $request): JsonResponse
     {
-        $validator = Validator::make($request->all(), (new StoreProdutoRequest)->rules());
+        $validator = Validator::make($request->all(), (new StoreProdutoRequest)->rules(), (new StoreProdutoRequest)->messages());
         if ($validator->fails()) {
             return response()->json([
                 'dados' => null,

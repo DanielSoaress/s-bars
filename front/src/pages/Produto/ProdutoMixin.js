@@ -6,10 +6,10 @@ const ProdutoMixin = {
       title: this.$route.name,
       route: this.$route.path,
       model: {
-        nom_produto: null,
-        cod_produto: null,
-        val_produto: null,
-        des_produto: null
+        nom_produto: '',
+        cod_produto: '',
+        val_produto: '',
+        des_produto: ''
       },
     };
   },

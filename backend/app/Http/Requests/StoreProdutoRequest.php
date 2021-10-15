@@ -30,4 +30,15 @@ class StoreProdutoRequest extends FormRequest
             'val_produto' => ['required'],
         ];
     }
+
+    public function messages() {
+        return [
+            'cod_produto.required' => 'Código do produto é obrigatório.',
+            'cod_produto.unique:produtos' => 'Código do produto já cadastrado.',
+            'nom_produto.required' => 'Nome do produto é obrigatório.',
+            'nom_produto.unique:produtos' => 'Nome do produto já cadastrado.',
+            'des_produto.required' => 'Descrição do produto é obrigatório.',
+            'val_produto.required' => 'Valor do produto é obrigatório.',
+        ];
+    }
 }
