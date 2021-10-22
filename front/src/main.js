@@ -4,7 +4,9 @@ import { vuetify } from '@/config';
 import VueRouter from 'vue-router';
 import routes from './routes/routes';
 import Notifications from 'vue-notification';
+import money from 'v-money';
 
+Vue.use(money, {precision: 2})
 
 // importação do store (VUEX)
 import store from './store';

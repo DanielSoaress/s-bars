@@ -34,6 +34,7 @@
             :rules="val_rules"
             :error="getError('val_produto')"
             @changeError="removeError"
+            type="number"
         />
         <Input
             :cols="12"

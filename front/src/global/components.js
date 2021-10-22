@@ -3,6 +3,7 @@ import {
   Form,
   DataTable,
   Input,
+  InputMoney,
   Button
 } from '../components';
 
@@ -18,6 +19,7 @@ const GlobalComponents = {
     Vue.component(Form.name, Form);
     Vue.component(DataTable.name, DataTable);
     Vue.component(Input.name, Input);
+    Vue.component(InputMoney.name, InputMoney);
     Vue.component(Button.name, Button);
 
   }

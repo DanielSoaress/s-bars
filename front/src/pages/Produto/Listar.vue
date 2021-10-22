@@ -48,7 +48,6 @@ export default {
       ],
     }),
     async created() {
-        console.log(this.pagination)
         this.listar();
     },
     methods: {
@@ -69,8 +68,11 @@ export default {
         editar(item) {
             this.$router.push(`${this.$route.fullPath}/editar/${item.cod_produto}`)
         },
-        deletar(item) {
-            console.log(item)
+        async deletar(item) {
+            await this.excluir(item.id);
+            if(this.success) {
+                this.pesquisar();
+            }
         }
     }
 }

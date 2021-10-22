@@ -74,7 +74,7 @@ export default {
         commit('SET_LOADING');
         const response = await api.get(`base/produto/${id}`);
         commit('SET_SUCCESS');
-        return response;
+        return response.data.data;
       } catch (error) {
         commit('SET_ERROR');
       }
@@ -83,9 +83,8 @@ export default {
     // EXCLUIR
     excluir: async ({ commit }, id) => {
       try {
-          const response = await api.delete(`base/produto/${id}`);
-          commit('SET_SUCCESS');
-          return response;
+        await api.delete(`base/produto/${id}`);
+        commit('SET_SUCCESS');
       } catch (error) {
         commit('SET_ERROR');
       }

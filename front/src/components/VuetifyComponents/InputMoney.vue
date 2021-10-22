@@ -1,24 +1,13 @@
 <template>
     <v-col :cols="cols">
         <v-text-field
-            v-if="type == 'text'"
             :id="id"
             :name="name"
-            v-model="model"
+            :value="mask"
             :label="label"
             :rules="rules"
             :error-messages="error"
-            @input="changeError()"
-        ></v-text-field> 
-        <v-text-field
-            v-if="type == 'number'"
-            :id="id"
-            :name="name"
-            v-model="model"
-            :label="label"
-            :rules="rules"
-            :error-messages="error"
-            @input="changeError();"
+            @input="changeError(); model = $event"
             @keydown.native="changeNumber($event);"
         ></v-text-field> 
     </v-col>    
@@ -26,7 +15,7 @@
 
 <script>
 export default {
-    name: 'Input',
+    name: 'InputMoney',
     props: {
       label: String,
       cols: Number,
@@ -50,6 +39,7 @@ export default {
     data() {
         return {
             model: '',
+            mask: '',
         };
     },
     methods: {
@@ -64,6 +54,14 @@ export default {
         } else {
             event.preventDefault();
         }
+      },
+      toDouble(value) {
+        if(value) {
+          value = value.replaceAll('.', '');
+          value = value.replaceAll(',', '');
+          value =`${value.slice(0, -2)}.${value.slice(-2)}`
+        }
+        return value;
       },
       removeMask(value) {
         if(!value) {
@@ -97,18 +95,24 @@ export default {
     },
     watch: {
         value(value) {
-          this.model = value;
+          if(value != null){
+            this.mask = value.toLocaleString('pt-br', {minimumFractionDigits: 2})
+            this.mask = this.onMask(this.mask)
+          } else {
+            this.mask = null
+          }
         },
         model(value) {
-          if(this.type == 'number') {
-            value = this.onMask(value);
+          if(this.toDouble(value) == '.00' ||
+             this.toDouble(value) == '.0'  ||
+             this.toDouble(value) == '.' ) {
+            this.$emit('input', null);
+          } else {
+            this.$emit('input', this.toDouble(value));
           }
-          this.$emit('input', value);
+          
         },
     },
-    mounted() {
-        this.model = this.value;
-    },  
 }
 </script>
 
