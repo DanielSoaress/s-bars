@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\JsonResponse;
-use App\Services\ProdutoService;
+use App\Services\ClienteService;
 use Illuminate\Http\Request;
-class ProdutoController extends Controller
+class ClienteController extends Controller
 {
     protected $service;
 
-    public function __construct(ProdutoService $service)
+    public function __construct(ClienteService $service)
     {
         $this->service = $service;
     }
@@ -25,7 +25,7 @@ class ProdutoController extends Controller
 
     public function show($id): JsonResponse
     {
-        return $this->service->buscarPor('cod_produto', $id);
+        return $this->service->buscarPor('id', $id);
     }
 
     public function destroy($id): JsonResponse

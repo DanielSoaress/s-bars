@@ -33,6 +33,30 @@ const routes = [
       path: `${router.produto.path}/editar/:id`,
       name: `Editar ${router.produto.name}`,
       component: () => import('../pages/Produto/Editar')
+    },
+    /********************************************************
+     * LISTAR CLIENTES
+     ********************************************************/
+    {
+      path: `${router.cliente.path}`,
+      name: `Pesquisar ${router.cliente.name}`,
+      component: () => import('../pages/Cliente/Listar')
+    },
+    /********************************************************
+     * ADICIONAR CLIENTES
+     ********************************************************/
+     {
+      path: `${router.cliente.path}/adicionar`,
+      name: `Incluir ${router.cliente.name}`,
+      component: () => import('../pages/Cliente/Adicionar')
+    },
+    /********************************************************
+     * EDITAR CLIENTES
+     ********************************************************/
+     {
+      path: `${router.cliente.path}/editar/:id`,
+      name: `Editar ${router.cliente.name}`,
+      component: () => import('../pages/Cliente/Editar')
     } 
 ];
 

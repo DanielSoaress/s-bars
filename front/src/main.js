@@ -5,7 +5,9 @@ import VueRouter from 'vue-router';
 import routes from './routes/routes';
 import Notifications from 'vue-notification';
 import money from 'v-money';
+import VueMask from 'v-mask'
 
+Vue.use(VueMask);
 Vue.use(money, {precision: 2})
 
 // importação do store (VUEX)

@@ -111,6 +111,9 @@
         return last_page;
       },
       initialPage() {
+        if(this.pagination.total == 0) {
+          return 0;
+        }
         return this.pagination.per_page * this.pagination.current_page - (this.pagination.per_page - 1);
       }
     },

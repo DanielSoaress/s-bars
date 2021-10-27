@@ -4,7 +4,8 @@ import {
   DataTable,
   Input,
   InputMoney,
-  Button
+  Button,
+  DatePicker
 } from '../components';
 
 /**
@@ -21,7 +22,7 @@ const GlobalComponents = {
     Vue.component(Input.name, Input);
     Vue.component(InputMoney.name, InputMoney);
     Vue.component(Button.name, Button);
-
+    Vue.component(DatePicker.name, DatePicker);
   }
 };
 

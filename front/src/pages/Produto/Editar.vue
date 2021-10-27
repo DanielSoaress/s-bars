@@ -1,7 +1,8 @@
 <template>
     <Form
         :title="$route.name"
-        type="form">  
+        type="form"
+        @action="atualizar(model)">  
         <Input
             :cols="2"
             label="Código"

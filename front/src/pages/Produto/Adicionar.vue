@@ -2,7 +2,7 @@
     <Form
         :title="$route.name"
         type="form"
-        @cadastrar="cadastrar(model)"
+        @action="cadastrar(model)"
         :loading="loading"
     >  
         <Input

@@ -17,3 +17,9 @@ export const dateTimeFormat = (date) => {
     minute: "numeric",
   }).format(new Date(date)) || null;
 };
+
+//Formatação da data e hora dd/mm/aaaa -> dd/mm
+export const dateFormatMonthYear = (date) => {
+  date = date.split('/');
+  return `${date[0]}/${date[1]}`
+};

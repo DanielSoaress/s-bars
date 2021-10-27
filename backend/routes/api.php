@@ -21,4 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::prefix('base')->group(function () {
     // Produto
     Route::apiResource('produto', 'App\Http\Controllers\ProdutoController');
+    Route::apiResource('cliente', 'App\Http\Controllers\ClienteController');
+
 });

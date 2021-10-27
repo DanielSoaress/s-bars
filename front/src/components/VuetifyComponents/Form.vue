@@ -91,7 +91,7 @@ export default {
             this.$router.go(-1)
         },
         salvar: function () {
-           this.$emit('cadastrar');
+           this.$emit('action');
         },
         limpar: function () {
             this.$emit('limpar');

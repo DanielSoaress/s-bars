@@ -1,10 +1,10 @@
-import NavigationDrawers from './VuetifyComponents/NavigationDrawers';
-import Form from './VuetifyComponents/Form';
+import Button from './VuetifyComponents/Button';
 import DataTable from './VuetifyComponents/DataTable';
+import DatePicker from './VuetifyComponents/DatePicker';
+import Form from './VuetifyComponents/Form';
 import Input from './VuetifyComponents/Input';
 import InputMoney from './VuetifyComponents/InputMoney';
-import Button from './VuetifyComponents/Button';
-
+import NavigationDrawers from './VuetifyComponents/NavigationDrawers';
 
 export {
   NavigationDrawers,
@@ -12,5 +12,6 @@ export {
   DataTable,
   Input,
   Button,
-  InputMoney
+  InputMoney,
+  DatePicker
 };

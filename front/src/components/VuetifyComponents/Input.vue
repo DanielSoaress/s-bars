@@ -1,5 +1,16 @@
 <template>
     <v-col :cols="cols">
+          <v-text-field
+            v-if="type == 'default'"
+            :id="id"
+            :name="name"
+            v-model="model"
+            :label="label"
+            :rules="rules"
+            v-mask="mask"
+            :error-messages="error"
+            @input="changeError()"
+        ></v-text-field> 
         <v-text-field
             v-if="type == 'text'"
             :id="id"
@@ -7,6 +18,7 @@
             v-model="model"
             :label="label"
             :rules="rules"
+            v-mask="mask"
             :error-messages="error"
             @input="changeError()"
         ></v-text-field> 
@@ -18,6 +30,7 @@
             :label="label"
             :rules="rules"
             :error-messages="error"
+            v-mask="mask"
             @input="changeError();"
             @keydown.native="changeNumber($event);"
         ></v-text-field> 
@@ -32,6 +45,7 @@ export default {
       cols: Number,
       rules: Array,
       id: String,
+      mask: String,
       name: {
         type: String,
       },
@@ -40,7 +54,7 @@ export default {
       },
       type: {
         type: String,
-        default: 'text'
+        default: 'default'
       },
       error: {
         type: String,

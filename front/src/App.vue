@@ -3,7 +3,7 @@
     <v-main>
         <v-row>
           <v-col cols='1'> 
-            <navigation-drawers :user="user" :menu-link="sidebar"></navigation-drawers>
+            <navigation-drawers :user="user" :menu-link="sidebar_links"></navigation-drawers>
           </v-col>
           <v-col cols='10'> 
             <notifications position="top right"/>
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import sidebar from './sidebarLinks.js';
 
 export default {
   name: 'App',
@@ -25,9 +26,11 @@ export default {
         name: 'Daniel Soares Francelino',
         email: 'danielsoaresf@hotmail.com'
       },
-      sidebar: [
-        { name: 'Produtos', icon: 'mdi-storefront-outline', fullPath: '/produto'}
-      ]
+    }
+  },
+  computed: {
+    sidebar_links: function () {
+      return sidebar();
     }
   }
 }
