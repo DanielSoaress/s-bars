@@ -33,7 +33,21 @@
             v-mask="mask"
             @input="changeError();"
             @keydown.native="changeNumber($event);"
-        ></v-text-field> 
+        ></v-text-field>
+        <v-text-field
+            v-if="type == 'password'"
+            :prepend-icon="show_password ? 'mdi-eye' : 'mdi-eye-off'"
+            @click:prepend="show_password = !show_password"
+            :type="show_password ? 'text' : 'password'"            
+            :id="id"
+            :name="name"
+            v-model="model"
+            :label="label"
+            :rules="rules"
+            :error-messages="error"
+            v-mask="mask"
+            @input="changeError();"
+        ></v-text-field>  
     </v-col>    
 </template>
 
@@ -64,6 +78,7 @@ export default {
     data() {
         return {
             model: '',
+            show_password: false,
         };
     },
     methods: {

@@ -8108,6 +8108,11 @@ uuid@^3.3.2, uuid@^3.4.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
+v-mask@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/v-mask/-/v-mask-2.3.0.tgz#2329c352ce9997eb721d160cf3f0a8552c5c9e1c"
+  integrity sha512-ap7pTtCTvj25CqX4VYXqudCBd0+XvYyhiiLbzWQQR7AMQosJ2+DPu0a94P9stk0EGmGcmYxJaPkFkfjD8hquWQ==
+
 v-money@^0.8.1:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/v-money/-/v-money-0.8.1.tgz#dc28cf3be915c5a6c52bfe1085075e1fe7ae9db5"

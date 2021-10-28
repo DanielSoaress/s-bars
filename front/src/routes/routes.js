@@ -57,6 +57,30 @@ const routes = [
       path: `${router.cliente.path}/editar/:id`,
       name: `Editar ${router.cliente.name}`,
       component: () => import('../pages/Cliente/Editar')
+    }, 
+    /********************************************************
+     * LISTAR FUNCIONÁRIOS
+     ********************************************************/
+     {
+      path: `${router.funcionario.path}`,
+      name: `Pesquisar ${router.funcionario.name}`,
+      component: () => import('../pages/Funcionario/Listar')
+    },
+    /********************************************************
+     * ADICIONAR FUNCIONÁRIOS
+     ********************************************************/
+     {
+      path: `${router.funcionario.path}/adicionar`,
+      name: `Incluir ${router.funcionario.name}`,
+      component: () => import('../pages/Funcionario/Adicionar')
+    },
+    /********************************************************
+     * EDITAR FUNCIONÁRIOS
+     ********************************************************/
+     {
+      path: `${router.funcionario.path}/editar/:id`,
+      name: `Editar ${router.funcionario.name}`,
+      component: () => import('../pages/Funcionario/Editar')
     } 
 ];
 

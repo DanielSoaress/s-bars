@@ -22,5 +22,7 @@ Route::prefix('base')->group(function () {
     // Produto
     Route::apiResource('produto', 'App\Http\Controllers\ProdutoController');
     Route::apiResource('cliente', 'App\Http\Controllers\ClienteController');
+    Route::apiResource('funcionario', 'App\Http\Controllers\FuncionarioController');
+
 
 });
