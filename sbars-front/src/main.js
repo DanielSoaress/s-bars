@@ -2,10 +2,15 @@ import Vue from 'vue'
 import App from './App.vue'
 import { vuetify } from '@/config';
 import VueRouter from 'vue-router';
-import routes from './routes/routes';
 import Notifications from 'vue-notification';
 import money from 'v-money';
-import VueMask from 'v-mask'
+import VueMask from 'v-mask';
+import RouterPrefetch from 'vue-router-prefetch';
+import BlackDashboard from "./plugins/blackDashboard";
+import i18n from "./i18n"
+import './registerServiceWorker';
+import router from "./router/index";
+
 
 Vue.use(VueMask);
 Vue.use(money, {precision: 2})
@@ -23,18 +28,21 @@ Vue.use(Notifications);
 
 // iniciando plugins
 Vue.use(VueRouter);
+Vue.use(BlackDashboard);
+Vue.use(RouterPrefetch);
 
 const router = new VueRouter({
   mode: 'history',
-  routes,
+  router,
 });
 
 new Vue({
   beforeCreate: function() {
     Vue.prototype.$routes = router;
   },
-  render: h => h(App),
   vuetify,
   router,
-  store
+  store,
+  i18n,
+  render: h => h(App),
 }).$mount('#app')

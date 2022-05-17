@@ -1,12 +1,20 @@
 import { router } from '../config';
 import Inicio from '../pages/Inicio/Inicio';
+import DashboardLayout from "@/layout/dashboard/DashboardLayout.vue";
+// GeneralViews
+import NotFound from "@/pages/NotFoundPage.vue";
+
+
+const Dashboard = () => import(/* webpackChunkName: "dashboard" */"@/pages/Dashboard.vue");
+const Profile = () => import(/* webpackChunkName: "common" */ "@/pages/Profile.vue");
+
 
 const routes = [
    /********************************************************
      * INICIO
      ********************************************************/
     {
-      path: '/',
+      path: '/teste',
       name: `Home`,
       component: Inicio
     },  
@@ -81,7 +89,25 @@ const routes = [
       path: `${router.funcionario.path}/editar/:id`,
       name: `Editar ${router.funcionario.name}`,
       component: () => import('../pages/Funcionario/Editar')
-    } 
+    },
+    {
+      path: "/",
+      component: DashboardLayout,
+      redirect: "/dashboard",
+      children: [
+        {
+          path: "dashboard",
+          name: "dashboard",
+          component: Dashboard
+        },
+        {
+          path: "profile",
+          name: "profile",
+          component: Profile
+        },
+      ]
+    },
+    { path: "*", component: NotFound },
 ];
 
 export default routes;
