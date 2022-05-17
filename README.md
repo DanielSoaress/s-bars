@@ -13,6 +13,10 @@ This project was developed with the following technologies:
 - [Vuetify](https://vuetifyjs.com/en/)
 - [Chart.js](https://www.chartjs.org/)
 - [Axios](https://github.com/axios/axios)
+- [Laravel]()
+
+## Authors
+* **Daniel Soares**: @DanielSoaress (https://github.com/DanielSoaress/DanielSoaress)
 
 Feito com ♥ by Daniel Soares :wave:
 
