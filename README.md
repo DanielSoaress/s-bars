@@ -8,16 +8,22 @@ Project with the intention of helping small bars to manage.
 
 This project was developed with the following technologies:
 
+FRONT-END:
 - [Vue.js](https://vuejs.org/)
 - [Vuex](https://vuex.vuejs.org/)
 - [Vuetify](https://vuetifyjs.com/en/)
 - [Chart.js](https://www.chartjs.org/)
 - [Axios](https://github.com/axios/axios)
-- [Laravel]()
+
+BACK-END:
+- [Laravel](https://laravel.com/docs/9.x)
 
 ## Authors
 * **Daniel Soares**: @DanielSoaress (https://github.com/DanielSoaress/DanielSoaress)
 
-Feito com ♥ by Daniel Soares :wave:
+Please follow github and join us!
+Thanks to visiting me and good coding!
+Done with ♥ by Daniel Soares :wave:
+
 
 
