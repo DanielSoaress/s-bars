@@ -22,7 +22,6 @@ BACK-END:
 - [@DanielSoaress](https://github.com/DanielSoaress/DanielSoaress)
 
 <br>
-<br>
 
 Please follow github and join us! <br>
 Thanks to visiting me and good coding! <br>
