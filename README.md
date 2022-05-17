@@ -21,9 +21,9 @@ BACK-END:
 ## Authors
 - [@DanielSoaress](https://github.com/DanielSoaress/DanielSoaress)
 
-# Please follow github and join us!
-# Thanks to visiting me and good coding!
-# Done with ♥ by Daniel Soares :wave:
+Please follow github and join us! <br>
+Thanks to visiting me and good coding! <br>
+Done with ♥ by Daniel Soares :wave: <br>
 
 
 
