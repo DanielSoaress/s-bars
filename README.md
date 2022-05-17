@@ -2,7 +2,7 @@
 
 ## 💻 Project
 
-Project with the intention of helping small bars to manage.
+Project with the intention of helping small bars to manage. Contribute to business growth, bringing technology and innovation.
 
 ## 🚀 Technologies
 
