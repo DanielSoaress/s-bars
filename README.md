@@ -19,11 +19,11 @@ BACK-END:
 - [Laravel](https://laravel.com/docs/9.x)
 
 ## Authors
-* **Daniel Soares**: @DanielSoaress (https://github.com/DanielSoaress/DanielSoaress)
+- [@DanielSoaress](https://github.com/DanielSoaress/DanielSoaress)
 
-Please follow github and join us!
-Thanks to visiting me and good coding!
-Done with ♥ by Daniel Soares :wave:
+# Please follow github and join us!
+# Thanks to visiting me and good coding!
+# Done with ♥ by Daniel Soares :wave:
 
 
 
