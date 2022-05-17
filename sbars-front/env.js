@@ -1,4 +1,4 @@
 export default {
-  name: 'Folha MP',
+  name: 'S-Bars',
   domain: 'http://localhost:8000/api',
 }
