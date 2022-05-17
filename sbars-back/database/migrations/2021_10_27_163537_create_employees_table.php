@@ -13,12 +13,12 @@ class CreateFuncionariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('funcionarios', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->id();
-            $table->string('nom_func');
-            $table->string('tel_func');
-            $table->string('end_func');
-            $table->string('niver_func');
+            $table->string('nom_employee');
+            $table->string('tel_employee');
+            $table->string('end_employee');
+            $table->string('niver_employee');
             $table->string('user');
             $table->string('password');
             $table->string('email');
@@ -33,6 +33,6 @@ class CreateFuncionariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('funcionarios');
+        Schema::dropIfExists('employees');
     }
 }

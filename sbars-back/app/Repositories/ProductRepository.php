@@ -2,14 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Models\Funcionario;
+use App\Models\Product;
 use App\Repositories\BaseRepository;
 use App\Repositories\BaseRepositoryInterface;
 
-class FuncionarioRepository extends BaseRepository implements BaseRepositoryInterface
+class ProductRepository extends BaseRepository implements BaseRepositoryInterface
 {
-    protected $model = Funcionario::class;
-    protected $sortBy = 'nom_func';
+    protected $model = Product::class;
+    protected $sortBy = 'nom_produto';
 
     public function __construct()
     {

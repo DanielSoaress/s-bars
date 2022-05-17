@@ -1,19 +1,19 @@
 <?php
 
 namespace App\Services;
-use App\Repositories\FuncionarioRepository;
-use App\Http\Requests\StoreFuncionarioRequest;
-use App\Http\Requests\UpdateFuncionarioRequest;
+use App\Repositories\EmployeeRepository;
+use App\Http\Requests\StoreEmployeeRequest;
+use App\Http\Requests\UpdateEmployeeRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 
-class FuncionarioService
+class EmployeeService
 {
-    protected FuncionarioRepository $repository;
+    protected EmployeeRepository $repository;
 
-    public function __construct(FuncionarioRepository $repository)
+    public function __construct(EmployeeRepository $repository)
     {
         $this->repository = $repository;
     }
@@ -26,7 +26,7 @@ class FuncionarioService
 
     public function cadastrar(Request $request): JsonResponse
     {
-        $validator = Validator::make($request->all(), (new StoreFuncionarioRequest)->rules(), (new StoreFuncionarioRequest)->messages());
+        $validator = Validator::make($request->all(), (new StoreEmployeeRequest)->rules(), (new StoreEmployeeRequest)->messages());
         if ($validator->fails()) {
             return response()->json([
                 'dados' => null,
@@ -52,7 +52,7 @@ class FuncionarioService
 
     public function editar($id, Request $request): JsonResponse
     {
-        $validator = Validator::make($request->all(), (new UpdateFuncionarioRequest)->rules($id));
+        $validator = Validator::make($request->all(), (new UpdateEmployeeRequest)->rules($id));
 
         if ($validator->fails()) {
             return response()->json([

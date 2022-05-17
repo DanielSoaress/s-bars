@@ -18,11 +18,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('base')->group(function () {
+Route::prefix('sbars')->group(function () {
     // Produto
-    Route::apiResource('produto', 'App\Http\Controllers\ProdutoController');
-    Route::apiResource('cliente', 'App\Http\Controllers\ClienteController');
-    Route::apiResource('funcionario', 'App\Http\Controllers\FuncionarioController');
+    Route::apiResource('product', 'App\Http\Controllers\ProductController');
+    Route::apiResource('client', 'App\Http\Controllers\ClientController');
+    Route::apiResource('employee', 'App\Http\Controllers\EmployeeController');
 
 
 });

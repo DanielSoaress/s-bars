@@ -5,18 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Funcionario extends Model
+class Employee extends Model
 {
     use HasFactory;
 
-    protected $table = 'funcionarios';
+    protected $table = 'employees';
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'nom_func',
-        'tel_func',
-        'end_func',
-        'niver_func',
+        'nom_employee',
+        'tel_employee',
+        'end_employee',
+        'niver_employee',
         'user',
         'password',
         'email'

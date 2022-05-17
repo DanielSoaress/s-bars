@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cliente extends Model
+class Client extends Model
 {
     use HasFactory;
 
-    protected $table = 'clientes';
+    protected $table = 'clients';
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'nom_cliente',
-        'tel_cliente',
-        'end_cliente',
-        'niver_cliente',
-        'cashback_cliente'
+        'nom_client',
+        'tel_client',
+        'end_client',
+        'niver_client',
+        'cashback_client'
     ];
 
     protected $hidden = [

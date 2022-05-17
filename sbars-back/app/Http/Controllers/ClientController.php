@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\JsonResponse;
-use App\Services\ClienteService;
+use App\Services\ClientService;
 use Illuminate\Http\Request;
-class ClienteController extends Controller
+class ClientController extends Controller
 {
     protected $service;
 
-    public function __construct(ClienteService $service)
+    public function __construct(ClientService $service)
     {
         $this->service = $service;
     }

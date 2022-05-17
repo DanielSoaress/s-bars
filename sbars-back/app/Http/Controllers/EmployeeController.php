@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\JsonResponse;
-use App\Services\FuncionarioService;
+use App\Services\EmployeeService;
 use Illuminate\Http\Request;
-class FuncionarioController extends Controller
+class EmployeeController extends Controller
 {
     protected $service;
 
-    public function __construct(FuncionarioService $service)
+    public function __construct(EmployeeService $service)
     {
         $this->service = $service;
     }

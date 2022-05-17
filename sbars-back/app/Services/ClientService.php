@@ -1,19 +1,19 @@
 <?php
 
 namespace App\Services;
-use App\Repositories\ProdutoRepository;
-use App\Http\Requests\StoreProdutoRequest;
-use App\Http\Requests\UpdateProdutoRequest;
+use App\Repositories\ClientRepository;
+use App\Http\Requests\StoreClientRequest;
+use App\Http\Requests\UpdateClientRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 
-class ProdutoService
+class ClientService
 {
-    protected ProdutoRepository $repository;
+    protected ClientRepository $repository;
 
-    public function __construct(ProdutoRepository $repository)
+    public function __construct(ClientRepository $repository)
     {
         $this->repository = $repository;
     }
@@ -26,7 +26,7 @@ class ProdutoService
 
     public function cadastrar(Request $request): JsonResponse
     {
-        $validator = Validator::make($request->all(), (new StoreProdutoRequest)->rules(), (new StoreProdutoRequest)->messages());
+        $validator = Validator::make($request->all(), (new StoreClientRequest)->rules(), (new StoreClientRequest)->messages());
         if ($validator->fails()) {
             return response()->json([
                 'dados' => null,
@@ -45,14 +45,14 @@ class ProdutoService
         }
 
         return response()->json([
-            'data' => null,
+            'data' => $retorno,
             'notification' => null,
         ], Response::HTTP_INTERNAL_SERVER_ERROR);
     }
 
     public function editar($id, Request $request): JsonResponse
     {
-        $validator = Validator::make($request->all(), (new UpdateProdutoRequest)->rules($id));
+        $validator = Validator::make($request->all(), (new UpdateClientRequest)->rules($id));
 
         if ($validator->fails()) {
             return response()->json([
