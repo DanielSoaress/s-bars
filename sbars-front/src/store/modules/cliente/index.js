@@ -1,4 +1,4 @@
-import { api, router } from '../../../config';
+import { api, router } from '../../../config/index';
 import  { navigate, telFormat, offTelFormat, notify, brlFormat, dateFormatMonthYear } from '../../../util';
 
 export default {

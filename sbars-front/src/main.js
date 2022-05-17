@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import { vuetify } from '@/config';
+import { vuetify } from './config/index';
 import VueRouter from 'vue-router';
 import Notifications from 'vue-notification';
 import money from 'v-money';
@@ -9,7 +9,7 @@ import RouterPrefetch from 'vue-router-prefetch';
 import BlackDashboard from "./plugins/blackDashboard";
 import i18n from "./i18n"
 import './registerServiceWorker';
-import router from "./router/index";
+import router from "./routes/index";
 
 
 Vue.use(VueMask);
@@ -30,11 +30,6 @@ Vue.use(Notifications);
 Vue.use(VueRouter);
 Vue.use(BlackDashboard);
 Vue.use(RouterPrefetch);
-
-const router = new VueRouter({
-  mode: 'history',
-  router,
-});
 
 new Vue({
   beforeCreate: function() {

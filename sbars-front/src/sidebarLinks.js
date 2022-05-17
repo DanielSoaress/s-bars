@@ -1,4 +1,4 @@
-import { router } from './config';
+import { router } from './config/index';
 
 function sidebar () {
   let sidenav = [];

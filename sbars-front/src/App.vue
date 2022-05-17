@@ -59,7 +59,7 @@ export default {
 </script>
 
 <style>
-#app {
+/*#app {
   font-family: "Roboto", sans-serif;
-}
+}*/
 </style>

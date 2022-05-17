@@ -1,4 +1,4 @@
-import { router } from '../config';
+import { router } from '../config/index';
 import Inicio from '../pages/Inicio/Inicio';
 import DashboardLayout from "@/layout/dashboard/DashboardLayout.vue";
 // GeneralViews
@@ -12,7 +12,7 @@ const Profile = () => import(/* webpackChunkName: "common" */ "@/pages/Profile.v
 const routes = [
    /********************************************************
      * INICIO
-     ********************************************************/
+     ********************************************************
     {
       path: '/teste',
       name: `Home`,
@@ -20,7 +20,7 @@ const routes = [
     },  
    /********************************************************
      * LISTAR PRODUTOS
-     ********************************************************/
+     ********************************************************
     {
       path: `${router.produto.path}`,
       name: `Pesquisar ${router.produto.name}`,
@@ -28,7 +28,7 @@ const routes = [
     },
     /********************************************************
      * ADICIONAR PRODUTOS
-     ********************************************************/
+     ********************************************************
      {
       path: `${router.produto.path}/adicionar`,
       name: `Incluir ${router.produto.name}`,
@@ -36,7 +36,7 @@ const routes = [
     },
     /********************************************************
      * EDITAR PRODUTOS
-     ********************************************************/
+     ********************************************************
      {
       path: `${router.produto.path}/editar/:id`,
       name: `Editar ${router.produto.name}`,
@@ -44,7 +44,7 @@ const routes = [
     },
     /********************************************************
      * LISTAR CLIENTES
-     ********************************************************/
+     ********************************************************
     {
       path: `${router.cliente.path}`,
       name: `Pesquisar ${router.cliente.name}`,
@@ -52,7 +52,7 @@ const routes = [
     },
     /********************************************************
      * ADICIONAR CLIENTES
-     ********************************************************/
+     ********************************************************
      {
       path: `${router.cliente.path}/adicionar`,
       name: `Incluir ${router.cliente.name}`,
@@ -60,7 +60,7 @@ const routes = [
     },
     /********************************************************
      * EDITAR CLIENTES
-     ********************************************************/
+     ********************************************************
      {
       path: `${router.cliente.path}/editar/:id`,
       name: `Editar ${router.cliente.name}`,
@@ -68,7 +68,7 @@ const routes = [
     }, 
     /********************************************************
      * LISTAR FUNCIONÁRIOS
-     ********************************************************/
+     ********************************************************
      {
       path: `${router.funcionario.path}`,
       name: `Pesquisar ${router.funcionario.name}`,
@@ -76,7 +76,7 @@ const routes = [
     },
     /********************************************************
      * ADICIONAR FUNCIONÁRIOS
-     ********************************************************/
+     ********************************************************
      {
       path: `${router.funcionario.path}/adicionar`,
       name: `Incluir ${router.funcionario.name}`,
@@ -84,12 +84,12 @@ const routes = [
     },
     /********************************************************
      * EDITAR FUNCIONÁRIOS
-     ********************************************************/
+     ********************************************************
      {
       path: `${router.funcionario.path}/editar/:id`,
       name: `Editar ${router.funcionario.name}`,
       component: () => import('../pages/Funcionario/Editar')
-    },
+    },*/
     {
       path: "/",
       component: DashboardLayout,

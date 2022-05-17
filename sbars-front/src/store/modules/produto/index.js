@@ -1,4 +1,4 @@
-import { api, router } from '../../../config';
+import { api, router } from '../../../config/index';
 import  { navigate, brlFormat, notify } from '../../../util';
 
 export default {
