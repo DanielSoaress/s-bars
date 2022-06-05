@@ -19,6 +19,7 @@
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.2",
         "nunomaduro/collision": "^5.0",
+        "nunomaduro/larastan": "^0.7",
         "phpunit/phpunit": "^9.3.3"
     },
     "autoload": {
@@ -46,6 +47,9 @@
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "larastan-analyse": [
+            "./vendor/bin/phpstan analyse --memory-limit=1G"
         ]
     },
     "extra": {
